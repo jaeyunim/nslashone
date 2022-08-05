@@ -40,7 +40,7 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
-    "users.apps.UsersConfig",
+    "users",
     "blog",
 ]
 
@@ -73,6 +73,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = "config.wsgi.application"
 
@@ -129,6 +130,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 AUTH_USER_MODEL = "users.User"
 
-""" 로그인, 로그아웃 """
+# 로그인 로그아웃
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"

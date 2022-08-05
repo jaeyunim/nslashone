@@ -1,28 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'users/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>로그인</h1>
-    <form method="post" action="{% url 'users:login' %}">
+{% block content %}
+<div class="container my-3">
+    <div class="row my-3">
+        <div class="col-4">
+            <h4>로그인</h4>
+        </div>
+    </div>
+    <form action="{% url 'users:login' %}" class="post-form" method="post">
         {% csrf_token %}
-        {% include 'users/form_errors.html' %}
-        <div>
-            <label>사용자 ID</label>
-            <input type="text" name="username" id="username">
+        {% include "users/form_errors.html" %}
+        <div class="form-group">
+            <label for="username">사용자 이름</label>
+            <input type="text" class="form-control" name="username" id="username">
         </div>
-        <div>
-            <label>비밀번호</label>
-            <input type="text" name="password" id="password">
+        <div class="form-group">
+            <label for="password1">비밀번호</label>
+            <input type="password" class="form-control" name="password" id="password">
         </div>
-        <button type="submit">로그인</button>
+        <br>
+        <button type="submit" class="btn btn-primary">로그인</button>
     </form>
-</body>
-
-</html>
+</div>
+</form>
+{% endblock %}
