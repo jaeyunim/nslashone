@@ -1,0 +1,12 @@
+.base {
+    display: flex;
+    padding: 30px 50px;
+    justify-content: center;
+}
+
+.map #map {
+    width: 500px;
+    height: 500px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
