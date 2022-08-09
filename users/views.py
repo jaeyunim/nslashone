@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from multiprocessing import context
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login, get_user_model
 from .forms import UserForm
 
 # Create your views here.
@@ -18,3 +19,10 @@ def signup(request):
     else:
         form = UserForm()
     return render(request, "users/signup.html", {"form": form})
+
+
+def user_info(request, pk):
+    get_user = get_user_model()
+    user = get_object_or_404(get_user, pk=pk)
+    context = {"user": user}
+    return render(request, "users/user_info.html", context)
